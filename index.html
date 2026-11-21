@@ -1,11 +1,573 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            Anton Wisnu Maryanto
-        </title>
-    </head>
-    <body>
-        <h1>Anton Wisnu Maryanto</h1>
-    </body>
+<!doctype html>
+<html lang="id">
+  <head>
+    <title>Anton Wisnu Maryanto | Mechatronics Portfolio</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS BOOTSTRAP 4.6 -->
+    <link rel="stylesheet" href="CSS/bootstrap.css" />
+
+    <!-- CSS CUSTOM -->
+    <link rel="stylesheet" href="CSS/Desain.css" />
+  </head>
+
+  <body>
+    <!-- ========================================
+         1. NAVBAR
+    ========================================= -->
+
+    <nav class="navbar-fixed">
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" href="#profile">Profil</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="#home">Beranda</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#services">Kompetensi</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Kontak</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ========================================
+         2. SLIDE PROFIL
+    ========================================= -->
+
+    <section
+      class="Home full-screen"
+      id="profile"
+      style="
+        background-image: url(&quot;IMG/BG%20HM.png&quot;);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      "
+    >
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2>Beyond the Engineer</h2>
+
+          <p>Discover My Journey, Skills & Passion</p>
+        </div>
+
+        <div class="row">
+          <!-- KOTAK 1: PERSONAL PROFILE -->
+
+          <div class="col-md-6 mb-4">
+            <div class="home-card h-100">
+              <h3>My Personal Profile</h3>
+
+              <p>
+                Perkenalkan, saya Anton Wisnu Maryanto, mahasiswa Teknik
+                Mekatronika di Politeknik ATMI Surakarta. Saya mempelajari
+                bidang mekanik, elektrik, elektronika, sistem kontrol, dan
+                otomasi industri melalui pembelajaran teori dan praktik.
+              </p>
+
+              <!-- TOMBOL FOTO PROFIL -->
+
+              <button type="button" class="photo-hint" onclick="openPhoto()">
+                Klik untuk melihat foto →
+              </button>
+            </div>
+          </div>
+
+          <!-- KOTAK 2: MY HOBBIES -->
+
+          <div class="col-md-6 mb-4">
+            <div class="home-card h-100">
+              <h3>My Hobbies</h3>
+
+              <p>
+                Di waktu luang, saya suka bermain Game, membaca buku, menonton
+                film, dan berbagai aktivitas yang dapat mengembangkan
+                kreativitas, menambah pengetahuan, serta memberikan pengalaman
+                baru. Saya juga senang menjelajahi teknologi terbaru dan mencoba
+                hal-hal baru yang dapat meningkatkan keterampilan saya.
+              </p>
+
+              <!-- TOMBOL FOTO HOBI -->
+
+              <button type="button" class="photo-hint" onclick="openHobby()">
+                Klik untuk melihat foto →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         3. SLIDE BERANDA
+    ========================================= -->
+
+    <section
+      class="Home full-screen"
+      id="home"
+      style="
+        background-image: url(&quot;IMG/BG%20HM.png&quot;);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      "
+    >
+      <div class="container text-center">
+        <h1>Welcome to My Portfolio</h1>
+
+        <h2>Mechatronics Engineering</h2>
+
+        <p>
+          Exploring Mechanical, Electrical, Electronics, Control Systems and
+          Industrial Automation.
+        </p>
+
+        <div class="row mt-5">
+          <!-- KOTAK 1 -->
+
+          <div class="col-md-6 mb-4">
+            <div class="home-card h-100">
+              <h3>Mechatronics & Automation</h3>
+
+              <p>
+                Saya mempelajari dan mengembangkan kemampuan dalam sistem
+                mekanik, elektrik, sistem kontrol, serta otomasi industri.
+              </p>
+            </div>
+          </div>
+
+          <!-- KOTAK 2 -->
+
+          <div class="col-md-6 mb-4">
+            <div class="home-card h-100">
+              <h3>Technology & Development</h3>
+
+              <p>
+                Mengembangkan pengetahuan dan keterampilan melalui teknologi,
+                pemrograman, desain, serta pengembangan sistem teknik.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         4. SLIDE KOMPETENSI
+    ========================================= -->
+
+    <section
+      class="Home full-screen"
+      id="services"
+      style="
+        background-image: url(&quot;IMG/BG%20HM.png&quot;);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      "
+    >
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2>My Technical Competencies</h2>
+
+          <p>Kompetensi Teknik Mekatronika</p>
+        </div>
+
+        <div class="row">
+          <!-- MECHANICAL -->
+
+          <div class="col-md-4 mb-4">
+            <div class="home-card h-100">
+              <h3>Mechanical Engineering</h3>
+
+              <p>
+                Perancangan mekanik, desain komponen, sistem transmisi, dan
+                pengembangan konstruksi mesin.
+              </p>
+            </div>
+          </div>
+
+          <!-- ELECTRICAL -->
+
+          <div class="col-md-4 mb-4">
+            <div class="home-card h-100">
+              <h3>Electrical & Electronics</h3>
+
+              <p>
+                Instalasi kelistrikan, rangkaian elektronika, wiring diagram,
+                dan sistem pengendalian listrik.
+              </p>
+            </div>
+          </div>
+
+          <!-- AUTOMATION -->
+
+          <div class="col-md-4 mb-4">
+            <div class="home-card h-100">
+              <h3>Automation & Control</h3>
+
+              <p>
+                PLC, sistem kontrol, pemrograman, CNC maintenance, dan otomasi
+                industri.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         5. SLIDE KONTAK
+    ========================================= -->
+
+    <section
+      class="Home full-screen"
+      id="contact"
+      style="
+        background-image: url(&quot;IMG/BG%20HM.png&quot;);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      "
+    >
+      <div class="container text-center">
+        <h2>Get In Touch</h2>
+
+        <p>
+          Terima kasih telah mengunjungi portfolio saya. Silakan hubungi saya
+          untuk informasi lebih lanjut.
+        </p>
+
+        <!-- INFORMASI KONTAK -->
+
+        <div class="row justify-content-center mt-4">
+          <div class="col-md-6">
+            <div class="home-card">
+              <h3>Contact Information</h3>
+
+              <p>Anton Wisnu Maryanto</p>
+
+              <p>Teknik Mekatronika</p>
+
+              <p>Politeknik ATMI Surakarta</p>
+
+              <!-- Tambahkan email dan nomor telepon di sini -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         6. POPUP FOTO PROFIL
+    ========================================= -->
+
+    <div id="photoModal" class="photo-modal" aria-hidden="true">
+      <div
+        class="photo-modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="photoTitle"
+      >
+        <!-- TOMBOL CLOSE -->
+
+        <button
+          type="button"
+          class="photo-close"
+          onclick="closePhoto()"
+          aria-label="Tutup popup"
+        >
+          &times;
+        </button>
+
+        <!-- FOTO ANTON -->
+
+        <img src="IMG/Anton 3.png" alt="Anton Wisnu Maryanto" />
+
+        <!-- INFORMASI FOTO -->
+
+        <h2 id="photoTitle">Anton Wisnu Maryanto</h2>
+
+        <p>My Personal Profile</p>
+      </div>
+    </div>
+
+    <!-- ========================================
+         7. POPUP FOTO MY HOBBIES
+    ========================================= -->
+
+    <div id="hobbyModal" class="photo-modal" aria-hidden="true">
+      <div
+        class="hobby-modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="hobbyTitle"
+      >
+        <!-- TOMBOL CLOSE -->
+
+        <button
+          type="button"
+          class="photo-close"
+          onclick="closeHobby()"
+          aria-label="Tutup galeri"
+        >
+          &times;
+        </button>
+
+        <!-- JUDUL GALERI -->
+
+        <h2 id="hobbyTitle">My Hobbies</h2>
+
+        <!-- SLIDER FOTO -->
+
+        <div class="hobby-slider" id="hobbySlider">
+          <div class="hobby-track" id="hobbyTrack">
+            <!-- FOTO 1: GAMING -->
+
+            <div class="hobby-slide">
+              <img
+                src="IMG/GAME 1.png"
+                alt="Hobi bermain game Mobile Legends: Bang Bang"
+              />
+
+              <h4>Gaming</h4>
+
+              <p class="hobby-description">
+                <h3> Mobile Legends: Bang Bang</h3>
+              </p>
+            </div>
+            <!-- FOTO 2: READING -->
+
+            <div class="hobby-slide">
+              <img src="IMG/BUKU.png" alt="Hobi membaca buku" />
+
+              <h4>Reading</h4>
+              <p class="hobby-description">
+                <h3> Saya senang membaca novel karya Tere Liye, khususnya Serial Aksi yang menghadirkan kisah Thomas dan Bujang. 
+                    Petualangan, strategi, dan konflik dalam cerita mereka menjadi daya tarik tersendiri bagi saya.</h3>
+              </p>
+            </div>
+
+            <!-- FOTO 3: MOVIES -->
+
+            <div class="hobby-slide">
+              <img src="IMG/BLCK CLV.jpg" alt="Hobi menonton film" />
+
+              <h4>Watching Movies</h4>
+                            <p class="hobby-description">
+                <h3>    Saya menyukai anime Black Clover, terutama sosok Asta yang pantang menyerah meskipun terlahir tanpa sihir. 
+                        Semangat, kerja keras, dan tekadnya untuk menjadi Wizard King menjadi inspirasi bagi saya.</h3>
+              </p>
+            </div>
+
+            <!-- FOTO 4: TECHNOLOGY -->
+
+            <div class="hobby-slide">
+              <img
+                src="IMG/ROBOT T.png"
+                alt="Hobi mengeksplorasi teknologi"
+              />
+
+              <h4>Exploring Technology</h4>
+              <p class="hobby-description">
+                <h3>    Saya tertarik mengeksplorasi teknologi, khususnya robotika dan otomasi industri. 
+                    Mempelajari cara kerja robot dan sistem otomatis menjadi motivasi saya untuk terus berinovasi dan mengembangkan kemampuan di bidang mekatronika.</h3>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- NAVIGASI FOTO -->
+
+        <div class="hobby-navigation">
+          <!-- FOTO SEBELUMNYA -->
+
+          <button
+            type="button"
+            onclick="changeHobby(-1)"
+            aria-label="Foto sebelumnya"
+          >
+            &#10094;
+          </button>
+
+          <!-- NOMOR FOTO -->
+
+          <span id="hobbyCounter"> 1 / 4 </span>
+
+          <!-- FOTO BERIKUTNYA -->
+
+          <button
+            type="button"
+            onclick="changeHobby(1)"
+            aria-label="Foto berikutnya"
+          >
+            &#10095;
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================
+         8. JAVASCRIPT BOOTSTRAP
+    ========================================= -->
+
+    <script src="JS/jquery.slim.min.js"></script>
+
+    <script src="JS/bootstrap.bundle.min.js"></script>
+
+    <!-- ========================================
+         9. JAVASCRIPT POPUP FOTO PROFIL
+    ========================================= -->
+
+    <script>
+      // MEMBUKA POPUP FOTO PROFIL
+
+      function openPhoto() {
+        const modal = document.getElementById("photoModal");
+
+        modal.style.display = "flex";
+
+        modal.setAttribute("aria-hidden", "false");
+
+        document.body.style.overflow = "hidden";
+      }
+
+      // MENUTUP POPUP FOTO PROFIL
+
+      function closePhoto() {
+        const modal = document.getElementById("photoModal");
+
+        modal.style.display = "none";
+
+        modal.setAttribute("aria-hidden", "true");
+
+        document.body.style.overflow = "";
+      }
+
+      // POPUP PROFIL HANYA DAPAT DITUTUP MELALUI TOMBOL X
+
+      /* ========================================
+           JAVASCRIPT POPUP MY HOBBIES
+        ======================================== */
+
+      let currentHobby = 0;
+
+      // MENGAMBIL JUMLAH FOTO SECARA OTOMATIS
+
+      const hobbySlides = document.querySelectorAll(".hobby-slide");
+
+      const totalHobbies = hobbySlides.length;
+
+      // MEMBUKA POPUP MY HOBBIES
+
+      function openHobby() {
+        const modal = document.getElementById("hobbyModal");
+
+        modal.style.display = "flex";
+
+        modal.setAttribute("aria-hidden", "false");
+
+        document.body.style.overflow = "hidden";
+
+        updateHobby();
+      }
+
+      // MENUTUP POPUP MY HOBBIES
+
+      function closeHobby() {
+        const modal = document.getElementById("hobbyModal");
+
+        modal.style.display = "none";
+
+        modal.setAttribute("aria-hidden", "true");
+
+        document.body.style.overflow = "";
+      }
+
+      // MENGGANTI FOTO HOBI
+
+      function changeHobby(direction) {
+        if (totalHobbies === 0) return;
+
+        currentHobby += direction;
+
+        // KEMBALI KE FOTO PERTAMA
+
+        if (currentHobby >= totalHobbies) {
+          currentHobby = 0;
+        }
+
+        // KEMBALI KE FOTO TERAKHIR
+
+        if (currentHobby < 0) {
+          currentHobby = totalHobbies - 1;
+        }
+
+        updateHobby();
+      }
+
+      // MEMPERBARUI POSISI FOTO
+
+      function updateHobby() {
+        if (totalHobbies === 0) return;
+
+        const track = document.getElementById("hobbyTrack");
+
+        const counter = document.getElementById("hobbyCounter");
+
+        track.style.transform = "translateX(-" + currentHobby * 100 + "%)";
+
+        counter.textContent = currentHobby + 1 + " / " + totalHobbies;
+      }
+
+      // MENGGESER FOTO DENGAN MOUSE ATAU LAYAR SENTUH
+
+      const hobbySlider = document.getElementById("hobbySlider");
+
+      let hobbyStartX = 0;
+
+      let hobbyStartY = 0;
+
+      let hobbyPointerDown = false;
+
+      hobbySlider.addEventListener("pointerdown", function (event) {
+        hobbyStartX = event.clientX;
+
+        hobbyStartY = event.clientY;
+
+        hobbyPointerDown = true;
+      });
+
+      hobbySlider.addEventListener("pointerup", function (event) {
+        if (!hobbyPointerDown) return;
+
+        const differenceX = event.clientX - hobbyStartX;
+
+        const differenceY = event.clientY - hobbyStartY;
+
+        if (
+          Math.abs(differenceX) > 40 &&
+          Math.abs(differenceX) > Math.abs(differenceY)
+        ) {
+          changeHobby(differenceX < 0 ? 1 : -1);
+        }
+
+        hobbyPointerDown = false;
+      });
+
+      hobbySlider.addEventListener("pointercancel", function () {
+        hobbyPointerDown = false;
+      });
+
+      // POPUP HOBI HANYA DAPAT DITUTUP MELALUI TOMBOL X
+    </script>
+  </body>
 </html>
