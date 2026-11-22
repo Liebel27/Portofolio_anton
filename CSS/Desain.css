@@ -1,4 +1,3 @@
-
 /* ========================================
    1. PENGATURAN DASAR
 ======================================== */
@@ -831,7 +830,7 @@ body {
 
 /* GRAFIK PENILAIAN */
 
-#contact .rating-chart {
+#home .rating-chart {
     position: relative;
     display: block;
     width: 100%;
@@ -841,12 +840,12 @@ body {
     overflow: visible;
 }
 
-#contact .rating-chart canvas {
+#home .rating-chart canvas {
     display: block;
     max-width: 100%;
 }
 
-#contact .rating-status {
+#home .rating-status {
     margin: 14px 0 0;
     color: #34495e;
     font-size: 12px;
@@ -917,7 +916,7 @@ body {
         padding: 25px 20px !important;
     }
 
-    #contact .rating-chart {
+    #home .rating-chart {
         height: 220px;
         min-height: 220px;
     }
