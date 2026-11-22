@@ -106,59 +106,123 @@
       </div>
     </section>
 
-    <!-- ========================================
-         3. SLIDE BERANDA
-    ========================================= -->
+   
+<!-- ========================================
+     3. SLIDE BERANDA
+========================================= -->
 
-    <section
-      class="Home full-screen"
-      id="home"
-      style="
-        background-image: url(&quot;IMG/BG%20HM.png&quot;);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-      "
-    >
-      <div class="container text-center">
-        <h1>Welcome to My Portfolio</h1>
 
-        <h2>Mechatronics Engineering</h2>
+<section
+  class="Home full-screen"
+  id="home"
+  style="
+    background-image: url('IMG/BG HM.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  "
+>
+  <div class="container text-center">
 
-        <p>
-          Exploring Mechanical, Electrical, Electronics, Control Systems and
-          Industrial Automation.
-        </p>
+    <!-- JUDUL BERANDA -->
+    <h1>Engineering Ideas Into Reality</h1>
 
-        <div class="row mt-5">
-          <!-- KOTAK 1 -->
+    <h2>Mechatronics Engineering</h2>
 
-          <div class="col-md-6 mb-4">
-            <div class="home-card h-100">
-              <h3>Mechatronics & Automation</h3>
+    <p>
+      Bridging Mechanical, Electrical, Electronics, and Automation Through Innovation.
+    </p>
 
-              <p>
-                Saya mempelajari dan mengembangkan kemampuan dalam sistem
-                mekanik, elektrik, sistem kontrol, serta otomasi industri.
-              </p>
-            </div>
-          </div>
+    <!-- DUA KOTAK UTAMA -->
+    <div class="row mt-5">
 
-          <!-- KOTAK 2 -->
+    </div>
 
-          <div class="col-md-6 mb-4">
-            <div class="home-card h-100">
-              <h3>Technology & Development</h3>
+    <!-- TIGA KOTAK BIDANG KEAHLIAN -->
+    <div class="row mt-3">
 
-              <p>
-                Mengembangkan pengetahuan dan keterampilan melalui teknologi,
-                pemrograman, desain, serta pengembangan sistem teknik.
-              </p>
-            </div>
-          </div>
+      <!-- ENGINEERING -->
+      <div class="col-md-4 mb-4">
+        <div class="home-card h-100">
+
+          <div class="feature-icon"></div>
+
+          <h3>Engineering</h3>
+
+          <p>
+            Mengembangkan kemampuan dalam perancangan teknik,
+            desain mekanik, dan pemecahan masalah rekayasa.
+          </p>
+
         </div>
       </div>
-    </section>
+
+      <!-- ROBOTICS -->
+      <div class="col-md-4 mb-4">
+        <div class="home-card h-100">
+
+          <div class="feature-icon"></div>
+
+          <h3>Robotics</h3>
+
+          <p>
+            Mempelajari pengembangan robot, sistem gerak,
+            pemrograman, dan integrasi perangkat elektronik.
+          </p>
+
+        </div>
+      </div>
+
+      <!-- AUTOMATION -->
+      <div class="col-md-4 mb-4">
+        <div class="home-card h-100">
+
+          <div class="feature-icon"></div>
+
+          <h3>Automation</h3>
+
+          <p>
+            Mengeksplorasi PLC, sistem kontrol, CNC maintenance,
+            dan penerapan otomasi dalam industri.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+    <!-- AKHIR TIGA KOTAK -->
+
+    <!-- ========================================
+         GRAFIK PENILAIAN KOMPETENSI
+    ========================================= -->
+
+    <div class="row justify-content-center mt-5">
+      <div class="col-lg-10 col-md-12">
+
+        <div class="home-card">
+
+          <h2>My Competency Rating</h2>
+
+          <p>
+            Grafik rata-rata penilaian kompetensi
+            berdasarkan penilaian pengunjung.
+          </p>
+
+          <div class="rating-chart">
+            <canvas id="skillChart"></canvas>
+          </div>
+
+          <p id="ratingStatus" class="rating-status">
+            Belum ada penilaian.
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
 
     <!-- ========================================
          4. SLIDE KOMPETENSI
@@ -224,47 +288,232 @@
       </div>
     </section>
 
-    <!-- ========================================
+   
+
+<!-- ========================================
          5. SLIDE KONTAK
-    ========================================= -->
+========================================= -->
 
-    <section
-      class="Home full-screen"
-      id="contact"
-      style="
-        background-image: url(&quot;IMG/BG%20HM.png&quot;);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-      "
-    >
-      <div class="container text-center">
-        <h2>Get In Touch</h2>
+<section
+  class="Home full-screen"
+  id="contact"
+  style="
+    background-image: url('IMG/BG%20HM.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  "
+>
+  <div class="container text-center">
 
-        <p>
-          Terima kasih telah mengunjungi portfolio saya. Silakan hubungi saya
-          untuk informasi lebih lanjut.
-        </p>
+    <div class="contact-heading">
+      <h1>Let's Build Something Great.</h1>
+      <h3>Connect, Collaborate & Innovate.</h3>
+      <p>
+        Mari terhubung, berbagi ide, dan berkolaborasi
+        untuk menciptakan inovasi di bidang teknologi dan rekayasa.
+      </p>
+    </div>
 
-        <!-- INFORMASI KONTAK -->
+    <div class="row justify-content-center">
 
-        <div class="row justify-content-center mt-4">
-          <div class="col-md-6">
-            <div class="home-card">
-              <h3>Contact Information</h3>
+      <!-- KOTAK 1: INFORMASI KONTAK -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="contact-box">
 
-              <p>Anton Wisnu Maryanto</p>
+          <span class="contact-number"></span>
+          <h2>Contact Information</h2>
 
-              <p>Teknik Mekatronika</p>
+          <h3>Anton Wisnu Maryanto</h3>
 
-              <p>Politeknik ATMI Surakarta</p>
+          <p>
+            Mahasiswa Teknik Mekatronika<br>
+            Politeknik ATMI Surakarta
+          </p>
 
-              <!-- Tambahkan email dan nomor telepon di sini -->
-            </div>
-          </div>
+          <div class="contact-divider"></div>
+
+          <p>
+            <strong>WhatsApp</strong><br>
+            <a href="https://wa.me/6285655558088" target="_blank">
+              +62 856-5555-8088
+            </a>
+          </p>
+
+          <p>
+            <strong>Email</strong><br>
+            <a href="mailto:Anton.20246007@students.ami.ac.id">
+              Anton.20246007@students.ami.ac.id
+            </a>
+          </p>
+
+          <p class="contact-motto">
+            Engineering Mindset Innovative Solutions.
+          </p>
+
         </div>
       </div>
-    </section>
+
+      <!-- KOTAK 2: FORM PESAN -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="contact-box">
+
+          <span class="contact-number"></span>
+          <h2>Send Me a Message</h2>
+
+          <p>
+            Punya pertanyaan, ide, atau peluang kolaborasi?
+            Silakan kirimkan pesan melalui formulir berikut.
+          </p>
+
+          <form id="contactForm">
+
+            <input
+              type="text"
+              id="visitorName"
+              class="form-control"
+              placeholder="Nama Anda"
+              required
+            >
+
+            <input
+              type="text"
+              id="visitorSubject"
+              class="form-control"
+              placeholder="Subjek Pesan"
+              required
+            >
+
+            <textarea
+              id="visitorMessage"
+              class="form-control"
+              rows="4"
+              placeholder="Tuliskan pesan Anda..."
+              required
+            ></textarea>
+
+<label for="sendMethod" class="contact-form-label">
+    Pilih metode pengiriman:
+</label>
+
+<select id="sendMethod" class="form-control" required>
+    <option value="whatsapp">WhatsApp</option>
+    <option value="email">Email</option>
+</select>
+
+            <button type="submit" class="contact-button">
+              Kirim Pesan
+            </button>
+
+          </form>
+
+        </div>
+      </div>
+
+      <!-- KOTAK 3: PENILAIAN KOMPETENSI -->
+      <div class="col-lg-4 col-md-12 mb-4">
+        <div class="contact-box">
+
+          <span class="contact-number"></span>
+          <h2>Skill Rating</h2>
+
+          <p>
+            Berikan penilaian terhadap kompetensi
+            yang ditampilkan dalam portofolio ini.
+          </p>
+
+          <form id="ratingForm">
+
+           
+<!-- MECHANICAL ENGINEERING -->
+<label for="mechanical">Mechanical Engineering</label>
+<select class="form-control rating-input" id="mechanical" required>
+    <option value="" disabled selected>Pilih nilai penilaian</option>
+    <option value="10">10 - Sangat Baik (Unggul)</option>
+    <option value="9">9 - Sangat Baik</option>
+    <option value="8">8 - Baik (Kompeten)</option>
+    <option value="7">7 - Baik</option>
+    <option value="6">6 - Cukup (Kompeten Dasar)</option>
+    <option value="5">5 - Cukup</option>
+    <option value="4">4 - Kurang</option>
+    <option value="3">3 - Kurang (Perlu Bimbingan)</option>
+    <option value="2">2 - Sangat Kurang</option>
+    <option value="1">1 - Sangat Kurang (Belum Kompeten)</option>
+</select>
+
+
+<!-- ELECTRICAL & ELECTRONICS -->
+<label for="electrical">Electrical & Electronics</label>
+<select class="form-control rating-input" id="electrical" required>
+    <option value="" disabled selected>Pilih nilai penilaian</option>
+    <option value="10">10 - Sangat Baik (Unggul)</option>
+    <option value="9">9 - Sangat Baik</option>
+    <option value="8">8 - Baik (Kompeten)</option>
+    <option value="7">7 - Baik</option>
+    <option value="6">6 - Cukup (Kompeten Dasar)</option>
+    <option value="5">5 - Cukup</option>
+    <option value="4">4 - Kurang</option>
+    <option value="3">3 - Kurang (Perlu Bimbingan)</option>
+    <option value="2">2 - Sangat Kurang</option>
+    <option value="1">1 - Sangat Kurang (Belum Kompeten)</option>
+</select>
+
+
+<!-- AUTOMATION & CONTROL -->
+<label for="automation">Automation & Control</label>
+<select class="form-control rating-input" id="automation" required>
+    <option value="" disabled selected>Pilih nilai penilaian</option>
+    <option value="10">10 - Sangat Baik (Unggul)</option>
+    <option value="9">9 - Sangat Baik</option>
+    <option value="8">8 - Baik (Kompeten)</option>
+    <option value="7">7 - Baik</option>
+    <option value="6">6 - Cukup (Kompeten Dasar)</option>
+    <option value="5">5 - Cukup</option>
+    <option value="4">4 - Kurang</option>
+    <option value="3">3 - Kurang (Perlu Bimbingan)</option>
+    <option value="2">2 - Sangat Kurang</option>
+    <option value="1">1 - Sangat Kurang (Belum Kompeten)</option>
+</select>
+
+
+<!-- PROGRAMMING -->
+<label for="programming">Programming</label>
+<select class="form-control rating-input" id="programming" required>
+    <option value="" disabled selected>Pilih nilai penilaian</option>
+    <option value="10">10 - Sangat Baik (Unggul)</option>
+    <option value="9">9 - Sangat Baik</option>
+    <option value="8">8 - Baik (Kompeten)</option>
+    <option value="7">7 - Baik</option>
+    <option value="6">6 - Cukup (Kompeten Dasar)</option>
+    <option value="5">5 - Cukup</option>
+    <option value="4">4 - Kurang</option>
+    <option value="3">3 - Kurang (Perlu Bimbingan)</option>
+    <option value="2">2 - Sangat Kurang</option>
+    <option value="1">1 - Sangat Kurang (Belum Kompeten)</option>
+</select>
+
+
+
+            <button type="submit" class="contact-button">
+              Kirim Penilaian
+            </button>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="contact-footer">
+      <p>
+        © 2026 Anton Wisnu Maryanto |
+        POLITEKNIK ATMI SURAKARTA | Teknik Mekatronika
+      </p>
+    </div>
+
+  </div>
+</section>
 
     <!-- ========================================
          6. POPUP FOTO PROFIL
@@ -569,5 +818,292 @@
 
       // POPUP HOBI HANYA DAPAT DITUTUP MELALUI TOMBOL X
     </script>
-  </body>
+
+
+<!-- ========================================
+     JAVASCRIPT CHART.JS
+========================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- ========================================
+     JAVASCRIPT KONTAK DAN GRAFIK
+========================================= -->
+
+<script>
+
+/* ========================================
+   1. KONFIGURASI KONTAK
+======================================== */
+
+const whatsappNumber = "6285655558088";
+const emailAddress = "Anton.20246007@students.ami.ac.id";
+
+
+/* ========================================
+   2. FORM PENGIRIMAN PESAN
+======================================== */
+
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("visitorName").value.trim();
+    const subject = document.getElementById("visitorSubject").value.trim();
+    const message = document.getElementById("visitorMessage").value.trim();
+    const method = document.getElementById("sendMethod").value;
+
+    if (!name || !subject || !message) {
+        alert("Mohon lengkapi seluruh formulir.");
+        return;
+    }
+
+    const messageContent =
+        "Halo Anton,\n\n" +
+        "Nama: " + name + "\n" +
+        "Subjek: " + subject + "\n\n" +
+        "Pesan:\n" + message;
+
+    if (method === "whatsapp") {
+
+        const whatsappURL =
+            "https://wa.me/" + whatsappNumber +
+            "?text=" + encodeURIComponent(messageContent);
+
+        window.open(whatsappURL, "_blank");
+
+    } else if (method === "email") {
+
+        const emailURL =
+            "mailto:" + emailAddress +
+            "?subject=" + encodeURIComponent(subject) +
+            "&body=" + encodeURIComponent(messageContent);
+
+        window.location.href = emailURL;
+
+    }
+
+});
+
+
+/* ========================================
+   3. PENYIMPANAN DATA PENILAIAN
+======================================== */
+
+const ratingStorageKey = "antonSkillRatingsV2";
+
+let ratings = JSON.parse(
+    localStorage.getItem(ratingStorageKey) || "[]"
+);
+
+
+/* ========================================
+   4. KONFIGURASI GRAFIK
+======================================== */
+
+const chartCanvas = document.getElementById("skillChart");
+
+const skillChart = new Chart(chartCanvas, {
+
+    type: "bar",
+
+    data: {
+
+        labels: [
+            "Mechanical Engineering",
+            "Electrical & Electronics",
+            "Automation & Control",
+            "Programming"
+        ],
+
+        datasets: [{
+
+            label: "Rata-rata Penilaian",
+
+            data: [0, 0, 0, 0],
+
+            backgroundColor: [
+                "rgba(30, 100, 160, 0.75)",
+                "rgba(40, 145, 180, 0.75)",
+                "rgba(25, 75, 120, 0.75)",
+                "rgba(70, 130, 100, 0.75)"
+            ],
+
+            borderColor: [
+                "#1e64a0",
+                "#2891b4",
+                "#194b78",
+                "#468264"
+            ],
+
+            borderWidth: 1,
+            borderRadius: 7
+
+        }]
+
+    },
+
+    options: {
+
+        responsive: true,
+        maintainAspectRatio: false,
+
+        scales: {
+
+            y: {
+
+                beginAtZero: true,
+                min: 0,
+                max: 10,
+
+                ticks: {
+                    stepSize: 1
+                },
+
+                title: {
+                    display: true,
+                    text: "Skala Kompetensi (1–10)"
+                }
+
+            }
+
+        },
+
+        plugins: {
+
+            legend: {
+                display: false
+            },
+
+            tooltip: {
+
+                callbacks: {
+
+                    label: function(context) {
+                        return "Nilai rata-rata: " + context.parsed.y;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+});
+
+
+/* ========================================
+   5. MENGHITUNG RATA-RATA PENILAIAN
+======================================== */
+
+function updateSkillChart() {
+
+    const skills = [
+        "mechanical",
+        "electrical",
+        "automation",
+        "programming"
+    ];
+
+    const averages = skills.map(function(skill) {
+
+        if (ratings.length === 0) {
+            return 0;
+        }
+
+        const total = ratings.reduce(function(sum, item) {
+
+            return sum + Number(item[skill] || 0);
+
+        }, 0);
+
+        return Number((total / ratings.length).toFixed(2));
+
+    });
+
+    skillChart.data.datasets[0].data = averages;
+
+    skillChart.update();
+
+    document.getElementById("ratingStatus").textContent =
+        ratings.length + " penilaian tersimpan pada browser ini.";
+
+}
+
+
+/* ========================================
+   6. FORM PENILAIAN KOMPETENSI
+======================================== */
+
+
+document.getElementById("ratingForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const newRating = {
+
+        mechanical: Number(
+            document.getElementById("mechanical").value
+        ),
+
+        electrical: Number(
+            document.getElementById("electrical").value
+        ),
+
+        automation: Number(
+            document.getElementById("automation").value
+        ),
+
+        programming: Number(
+            document.getElementById("programming").value
+        )
+
+    };
+
+    // Menyimpan penilaian baru
+    ratings.push(newRating);
+
+    localStorage.setItem(
+        ratingStorageKey,
+        JSON.stringify(ratings)
+    );
+
+    // Memperbarui grafik penilaian
+    updateSkillChart();
+
+    // Menampilkan notifikasi
+// Menampilkan notifikasi
+alert("Terima kasih! Penilaian Anda berhasil disimpan.");
+
+// MENGEMBALIKAN 4 DROPDOWN KE PILIHAN AWAL
+this.reset();
+
+// PINDAH KE SLIDE BERANDA SETELAH USER KLIK OK
+document.getElementById("home").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+});
+
+// Memperbarui alamat URL
+history.replaceState(null, null, "#home");
+
+});
+
+
+
+/* ========================================
+   7. MENAMPILKAN DATA SAAT HALAMAN DIBUKA
+======================================== */
+
+updateSkillChart();
+
+</script>
+
+
+
+</body>
 </html>
+
+
