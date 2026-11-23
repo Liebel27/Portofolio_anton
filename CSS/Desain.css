@@ -1,0 +1,924 @@
+/* ========================================
+   1. PENGATURAN DASAR
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+    width: 0;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f9;
+    overflow-x: hidden;
+}
+
+
+/* ========================================
+   2. NAVBAR TRANSPARAN
+======================================== */
+
+.nav {
+    padding: 10px;
+}
+
+.navbar-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.30);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar-fixed .nav {
+    margin: 0;
+    padding: 10px;
+    background: transparent !important;
+}
+
+.navbar-fixed .nav-link {
+    color: white;
+    margin: 0 10px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.navbar-fixed .nav-link:hover,
+.navbar-fixed .nav-link:focus,
+.navbar-fixed .nav-link.active:hover {
+    color: #42bfff !important;
+    background: rgba(190, 235, 255, 0.75);
+    box-shadow: 0 0 30px rgba(220, 250, 255, 0.9);
+}
+
+.navbar-fixed .nav-link.active {
+    color: white;
+}
+
+
+/* ========================================
+   3. BACKGROUND HOME
+======================================== */
+
+.Home {
+    position: relative;
+    min-height: 100vh;
+    padding-top: 0;
+    background-color: #f4f6f9;
+}
+
+
+/* ========================================
+   4. KONTEN HOME
+======================================== */
+
+.home-content {
+    position: relative;
+    padding-top: 120px;
+    padding-bottom: 40px;
+}
+
+
+/* ========================================
+   5. KOTAK SKILLS
+   GLASSMORPHISM EFFECT
+======================================== */
+
+.home-card {
+    background: rgba(255, 255, 255, 0.30);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 30px;
+    min-height: 280px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.home-card:hover {
+    background: rgba(220, 245, 255, 0.45);
+    border-color: rgba(220, 245, 255, 0.95);
+    box-shadow: 0 8px 30px rgba(190, 235, 255, 0.5);
+    transform: translateY(-5px);
+}
+
+.home-card h3 {
+    color: #001f3f;
+    margin-bottom: 20px;
+}
+
+.home-card p {
+    color: #444;
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   6. SERVICES, ABOUT, CONTACT
+======================================== */
+
+.page-section {
+    padding: 60px 0;
+    min-height: 220px;
+    scroll-margin-top: 100px;
+}
+
+#services {
+    background-color: rgb(243, 243, 250);
+}
+
+.page-section:nth-of-type(even) {
+    background-color: white;
+}
+
+.page-section h2 {
+    color: #001f3f;
+    margin-bottom: 20px;
+}
+
+.page-section p {
+    color: #555;
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   7. TAMPILAN LAYAR PENUH
+======================================== */
+
+.full-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+
+/* ========================================
+   8. RESPONSIVE MOBILE
+======================================== */
+
+@media (max-width: 767px) {
+
+    .home-content {
+        padding-top: 100px;
+    }
+
+    .home-card {
+        min-height: auto;
+        padding: 20px;
+    }
+
+    .nav .nav-link {
+        margin: 0 3px;
+        padding: 8px;
+    }
+}
+
+
+/* ========================================
+   9. POPUP FOTO SKILLS 1
+======================================== */
+
+.photo-card {
+    cursor: default;
+    position: relative;
+}
+
+.photo-card:focus-visible {
+    outline: 3px solid #5bc0ff;
+    outline-offset: 4px;
+}
+
+.photo-hint {
+    display: inline-block;
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    color: #168bc7;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.photo-hint:hover {
+    color: #062b4a;
+    text-decoration: underline;
+    transform: translateX(4px);
+}
+
+.photo-hint:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+/* ========================================
+   10. BACKGROUND POPUP TRANSPARAN
+======================================== */
+
+.photo-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 20, 35, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+
+/* ========================================
+   11. KONTEN POPUP GLASSMORPHISM
+======================================== */
+
+.photo-modal-content {
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    max-height: none;
+    overflow: visible;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.2);
+    animation: photoAppear 0.3s ease;
+}
+
+
+/* ========================================
+   12. FOTO POPUP
+======================================== */
+
+.photo-modal-content img {
+    display: block;
+    max-width: 100%;
+    max-height: 65vh;
+    margin: 0 auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+
+/* ========================================
+   13. JUDUL POPUP
+======================================== */
+
+.photo-modal-content h2 {
+    color: white;
+    margin-top: 20px;
+}
+
+.photo-modal-content p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* ========================================
+   14. TOMBOL CLOSE
+======================================== */
+
+.photo-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.photo-close:hover {
+    color: #8edcff;
+    transform: scale(1.15);
+}
+
+
+/* ========================================
+   15. ANIMASI POPUP
+======================================== */
+
+@keyframes photoAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* ========================================
+   16. RESPONSIVE POPUP
+======================================== */
+
+@media (max-width: 767px) {
+
+    .photo-modal {
+        padding: 12px;
+    }
+
+    .photo-modal-content {
+        padding: 20px;
+        max-width: 95%;
+    }
+
+    .photo-modal-content img {
+        max-height: 55vh;
+    }
+
+    .photo-modal-content h2 {
+        font-size: 22px;
+    }
+
+    .photo-close {
+        font-size: 28px;
+    }
+
+}
+
+
+/* ========================================
+   17. MENGHILANGKAN SCROLLBAR GLOBAL
+======================================== */
+
+* {
+    scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+body {
+    -ms-overflow-style: none;
+}
+
+
+/* ========================================
+   18. POPUP MY HOBBIES
+======================================== */
+
+.hobby-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 35px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 18px;
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.2);
+    animation: photoAppear 0.3s ease;
+}
+
+.hobby-modal-content h2 {
+    color: white;
+    margin: 0 0 25px;
+    font-size: 26px;
+}
+
+
+/* SLIDER FOTO */
+
+.hobby-slider {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    touch-action: pan-y;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.hobby-slider:active {
+    cursor: grabbing;
+}
+
+.hobby-track {
+    display: flex;
+    width: 100%;
+    transition: transform 0.4s ease;
+    will-change: transform;
+}
+
+.hobby-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.hobby-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 12px;
+    pointer-events: none;
+    background: transparent;
+}
+
+.hobby-slide h4 {
+    margin-top: 15px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.hobby-description {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 750px;
+    margin: 10px auto 15px;
+    text-align: center;
+}
+
+
+/* NAVIGASI FOTO */
+
+.hobby-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.hobby-navigation button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    color: #062b4a;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hobby-navigation button:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+.hobby-navigation button:focus-visible {
+    outline: 2px solid #168bc7;
+    outline-offset: 3px;
+}
+
+#hobbyCounter {
+    color: #062b4a;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+/* RESPONSIVE MY HOBBIES */
+
+@media (max-width: 576px) {
+
+    .hobby-modal-content {
+        width: 95%;
+        padding: 25px 18px;
+    }
+
+    .hobby-modal-content h2 {
+        font-size: 22px;
+    }
+
+    .hobby-slide img {
+        height: 220px;
+    }
+
+    .hobby-navigation {
+        gap: 18px;
+    }
+
+}
+
+
+/* ========================================
+   19. CONTACT SECTION - FINAL RESPONSIVE
+======================================== */
+
+/* Section kontak mengikuti tinggi konten */
+#contact.Home.full-screen {
+    display: block !important;
+    position: relative;
+    width: 100%;
+    height: auto !important;
+    min-height: 100vh;
+    max-height: none !important;
+    padding: 110px 20px 55px !important;
+    overflow: visible !important;
+}
+
+/* Container */
+#contact > .container {
+    width: 100%;
+    max-width: 1400px;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* Baris Bootstrap */
+#contact .row {
+    align-items: stretch;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* Kolom Bootstrap */
+#contact .row > [class*="col-"] {
+    display: flex;
+    flex-direction: column;
+    height: auto !important;
+    margin-bottom: 24px;
+    overflow: visible !important;
+}
+
+
+/* HEADING */
+
+#contact .contact-heading {
+    max-width: 900px;
+    margin: 0 auto 35px;
+}
+
+#contact .contact-label {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #123e63;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+
+#contact .contact-heading h1 {
+    margin: 12px 0;
+    color: #082d4c;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+#contact .contact-heading h3 {
+    margin-bottom: 18px;
+    color: #174e79;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#contact .contact-heading p {
+    max-width: 800px;
+    margin: 15px auto;
+    color: #263d52;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* TIGA KOTAK TRANSPARAN */
+
+#contact .contact-box {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    width: 100%;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0;
+    padding: 30px 24px !important;
+
+    background: rgba(225, 240, 255, 0.58) !important;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+
+    box-shadow: 0 8px 32px rgba(10, 40, 70, 0.18);
+
+    overflow: visible !important;
+
+    transition: background 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.3s ease;
+}
+
+#contact .contact-box:hover {
+    background: rgba(235, 245, 255, 0.70) !important;
+    box-shadow: 0 15px 35px rgba(10, 40, 70, 0.22);
+    transform: translateY(-4px);
+}
+
+#contact .contact-number {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #174e79;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+#contact .contact-box h2 {
+    margin: 0 0 22px;
+    color: #082d4c;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+#contact .contact-box h3 {
+    color: #173b5c;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#contact .contact-box p {
+    color: #34495e;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+#contact .contact-box a {
+    color: #07558b;
+    font-weight: 600;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+#contact .contact-box a:hover {
+    text-decoration: underline;
+}
+
+#contact .contact-divider {
+    width: 55px;
+    height: 3px;
+    margin: 20px auto;
+    background: #174e79;
+    border-radius: 5px;
+}
+
+#contact .contact-motto {
+    margin-top: 20px;
+    color: #173b5c !important;
+    font-weight: 700;
+}
+
+
+/* FORMULIR */
+
+#contact .contact-box form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto !important;
+    margin: 0;
+    overflow: visible !important;
+}
+
+#contact .contact-box .form-control {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    height: auto;
+    box-sizing: border-box;
+
+    margin: 0 0 13px;
+    padding: 11px 12px;
+
+    border: 1px solid rgba(20, 65, 100, 0.25);
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.88);
+    color: #173b5c;
+
+    font-size: 14px;
+    line-height: 1.4;
+
+    box-shadow: none;
+}
+
+#contact .contact-box textarea.form-control {
+    min-height: 110px;
+    height: 110px;
+    resize: none !important;
+}
+
+#contact .contact-box .form-control:focus {
+    border-color: #75aee0;
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(55, 135, 205, 0.18);
+}
+
+#contact .contact-form-label,
+#contact .contact-box label {
+    display: block;
+    margin: 12px 0 7px;
+    color: #173b5c;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+}
+
+
+/* DROPDOWN */
+
+#contact #sendMethod,
+#contact .rating-input {
+    display: block;
+    width: 100% !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    box-sizing: border-box !important;
+
+    margin: 0 0 13px !important;
+    padding: 8px 35px 8px 12px !important;
+
+    line-height: normal !important;
+    border-radius: 9px !important;
+
+    background-color: rgba(255, 255, 255, 0.90) !important;
+    color: #173b5c !important;
+}
+
+
+/* TOMBOL */
+
+#contact .contact-button {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+
+    margin: 12px 0 0;
+    padding: 12px 16px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #123e63;
+    color: #fff;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: background 0.3s ease,
+                transform 0.3s ease;
+}
+
+#contact .contact-button:hover {
+    background: #0876b9;
+    transform: translateY(-2px);
+}
+
+
+/* GRAFIK PENILAIAN */
+
+#home .rating-chart {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 250px;
+    min-height: 250px;
+    margin-top: 25px;
+    overflow: visible;
+}
+
+#home .rating-chart canvas {
+    display: block;
+    max-width: 100%;
+}
+
+#home .rating-status {
+    margin: 14px 0 0;
+    color: #34495e;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* FOOTER */
+
+#contact .contact-footer {
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+
+#contact .contact-footer p {
+    margin-bottom: 0;
+    color: #263d52;
+    font-size: 13px;
+}
+
+
+/* RESPONSIVE TABLET */
+
+@media (max-width: 991px) {
+
+    #contact.Home.full-screen {
+        padding: 100px 18px 45px !important;
+    }
+
+    #contact .row > [class*="col-"] {
+        margin-bottom: 20px;
+    }
+
+    #contact .contact-box {
+        padding: 26px 20px !important;
+    }
+
+}
+
+
+/* RESPONSIVE MOBILE */
+
+@media (max-width: 767px) {
+
+    #contact.Home.full-screen {
+        padding: 90px 15px 35px !important;
+    }
+
+    #contact .contact-heading h1 {
+        font-size: 32px;
+    }
+
+    #contact .contact-heading h3 {
+        font-size: 17px;
+    }
+
+    #contact .contact-heading p {
+        font-size: 14px;
+    }
+
+    #contact .row > [class*="col-"] {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    #contact .contact-box {
+        height: auto !important;
+        padding: 25px 20px !important;
+    }
+
+    #home .rating-chart {
+        height: 220px;
+        min-height: 220px;
+    }
+
+}
