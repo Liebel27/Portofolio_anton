@@ -1,0 +1,5 @@
+Nama Repository : Portofolio_anton
+GitHub URL      : https://github.com/Liebel27/Portofolio_anton
+Branch          : Web-PHP
+Database        : portofolio_wisnu
+Database File   : portofolio_wisnu.sql

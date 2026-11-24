@@ -1,3 +1,14 @@
+<?php
+require_once 'Database.php';
+
+// Mengambil data kompetensi dari database
+$query = "SELECT * FROM services WHERE is_active = 1 ORDER BY id ASC";
+
+$stmt = $pdo->prepare($query);
+$stmt->execute();
+
+$services = $stmt->fetchAll();
+?>
 <!doctype html>
 <html lang="id">
   <head>
@@ -224,71 +235,52 @@
   </div>
 </section>
 
-    <!-- ========================================
-         4. SLIDE KOMPETENSI
-    ========================================= -->
-
-    <section
-      class="Home full-screen"
-      id="services"
-      style="
-        background-image: url(&quot;IMG/BG%20HM.png&quot;);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-      "
-    >
-      <div class="container">
-        <div class="text-center mb-5">
-          <h2>My Technical Competencies</h2>
-
-          <p>Kompetensi Teknik Mekatronika</p>
-        </div>
-
-        <div class="row">
-          <!-- MECHANICAL -->
-
-          <div class="col-md-4 mb-4">
-            <div class="home-card h-100">
-              <h3>Mechanical Engineering</h3>
-
-              <p>
-                Perancangan mekanik, desain komponen, sistem transmisi, dan
-                pengembangan konstruksi mesin.
-              </p>
-            </div>
-          </div>
-
-          <!-- ELECTRICAL -->
-
-          <div class="col-md-4 mb-4">
-            <div class="home-card h-100">
-              <h3>Electrical & Electronics</h3>
-
-              <p>
-                Instalasi kelistrikan, rangkaian elektronika, wiring diagram,
-                dan sistem pengendalian listrik.
-              </p>
-            </div>
-          </div>
-
-          <!-- AUTOMATION -->
-
-          <div class="col-md-4 mb-4">
-            <div class="home-card h-100">
-              <h3>Automation & Control</h3>
-
-              <p>
-                PLC, sistem kontrol, pemrograman, CNC maintenance, dan otomasi
-                industri.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
    
+<!-- ========================================
+     4. SLIDE KOMPETENSI
+========================================= -->
+
+<section
+  class="Home full-screen"
+  id="services"
+  style="
+    background-image: url('IMG/BG%20HM.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  "
+>
+  <div class="container">
+
+    <div class="text-center mb-5">
+      <h2>My Technical Competencies</h2>
+      <p>Kompetensi Teknik Mekatronika</p>
+    </div>
+
+    <div class="row">
+
+      <?php foreach ($services as $service): ?>
+
+        <div class="col-md-4 mb-4">
+          <div class="home-card h-100">
+
+            <h3>
+              <?= htmlspecialchars($service['title']) ?>
+            </h3>
+
+            <p>
+              <?= htmlspecialchars($service['description']) ?>
+            </p>
+
+          </div>
+        </div>
+
+      <?php endforeach; ?>
+
+    </div>
+
+  </div>
+</section>
 
 <!-- ========================================
          5. SLIDE KONTAK
@@ -844,7 +836,8 @@ const emailAddress = "Anton.20246007@students.ami.ac.id";
    2. FORM PENGIRIMAN PESAN
 ======================================== */
 
-document.getElementById("contactForm").addEventListener("submit", function(event) {
+
+document.getElementById("contactForm").addEventListener("submit", async function(event) {
 
     event.preventDefault();
 
@@ -858,28 +851,62 @@ document.getElementById("contactForm").addEventListener("submit", function(event
         return;
     }
 
-    const messageContent =
-        "Halo Anton,\n\n" +
-        "Nama: " + name + "\n" +
-        "Subjek: " + subject + "\n\n" +
-        "Pesan:\n" + message;
+    // Menyiapkan data untuk dikirim ke database
+    const formData = new FormData();
 
-    if (method === "whatsapp") {
+    formData.append("name", name);
+    formData.append("subject", subject);
+    formData.append("message", message);
 
-        const whatsappURL =
-            "https://wa.me/" + whatsappNumber +
-            "?text=" + encodeURIComponent(messageContent);
+    try {
 
-        window.open(whatsappURL, "_blank");
+        // Mengirim pesan ke save_contact.php
+        const response = await fetch("save_contact.php", {
+            method: "POST",
+            body: formData
+        });
 
-    } else if (method === "email") {
+        const result = await response.json();
 
-        const emailURL =
-            "mailto:" + emailAddress +
-            "?subject=" + encodeURIComponent(subject) +
-            "&body=" + encodeURIComponent(messageContent);
+        if (!response.ok || !result.success) {
+            throw new Error(result.message || "Gagal menyimpan pesan.");
+        }
 
-        window.location.href = emailURL;
+        // Menyiapkan isi pesan WhatsApp atau Email
+        const messageContent =
+            "Halo Anton,\n\n" +
+            "Nama: " + name + "\n" +
+            "Subjek: " + subject + "\n\n" +
+            "Pesan:\n" + message;
+
+        // Membuka WhatsApp atau Email setelah data tersimpan
+        if (method === "whatsapp") {
+
+            const whatsappURL =
+                "https://wa.me/" + whatsappNumber +
+                "?text=" + encodeURIComponent(messageContent);
+
+            window.open(whatsappURL, "_blank");
+
+        } else if (method === "email") {
+
+            const emailURL =
+                "mailto:" + emailAddress +
+                "?subject=" + encodeURIComponent(subject) +
+                "&body=" + encodeURIComponent(messageContent);
+
+            window.location.href = emailURL;
+        }
+
+        alert("Pesan berhasil disimpan ke database.");
+
+        // Mengosongkan formulir
+        this.reset();
+
+    } catch (error) {
+
+        console.error(error);
+        alert("Terjadi kesalahan: " + error.message);
 
     }
 
@@ -887,28 +914,15 @@ document.getElementById("contactForm").addEventListener("submit", function(event
 
 
 /* ========================================
-   3. PENYIMPANAN DATA PENILAIAN
-======================================== */
-
-const ratingStorageKey = "antonSkillRatingsV2";
-
-let ratings = JSON.parse(
-    localStorage.getItem(ratingStorageKey) || "[]"
-);
-
-
-/* ========================================
-   4. KONFIGURASI GRAFIK
+   3. KONFIGURASI GRAFIK
 ======================================== */
 
 const chartCanvas = document.getElementById("skillChart");
 
 const skillChart = new Chart(chartCanvas, {
-
     type: "bar",
 
     data: {
-
         labels: [
             "Mechanical Engineering",
             "Electrical & Electronics",
@@ -917,7 +931,6 @@ const skillChart = new Chart(chartCanvas, {
         ],
 
         datasets: [{
-
             label: "Rata-rata Penilaian",
 
             data: [0, 0, 0, 0],
@@ -938,20 +951,15 @@ const skillChart = new Chart(chartCanvas, {
 
             borderWidth: 1,
             borderRadius: 7
-
         }]
-
     },
 
     options: {
-
         responsive: true,
         maintainAspectRatio: false,
 
         scales: {
-
             y: {
-
                 beginAtZero: true,
                 min: 0,
                 max: 10,
@@ -964,30 +972,141 @@ const skillChart = new Chart(chartCanvas, {
                     display: true,
                     text: "Skala Kompetensi (1–10)"
                 }
-
             }
-
         },
 
         plugins: {
-
             legend: {
                 display: false
             },
 
             tooltip: {
-
                 callbacks: {
-
                     label: function(context) {
                         return "Nilai rata-rata: " + context.parsed.y;
                     }
-
                 }
-
             }
-
         }
+    }
+});
+
+
+/* ========================================
+   4. MENGAMBIL DATA DARI DATABASE
+======================================== */
+
+async function updateSkillChart() {
+
+    try {
+        const response = await fetch("get_ratings.php");
+
+        if (!response.ok) {
+            throw new Error("Gagal mengambil data penilaian.");
+        }
+
+        const result = await response.json();
+
+        if (!result.success) {
+            throw new Error(result.message);
+        }
+
+        const averages = [
+            result.mechanical,
+            result.electrical,
+            result.automation,
+            result.programming
+        ];
+
+        // Memperbarui grafik
+        skillChart.data.datasets[0].data = averages;
+        skillChart.update();
+
+        // Memperbarui jumlah penilaian
+        const status = document.getElementById("ratingStatus");
+
+        if (result.total === 0) {
+            status.textContent = "Belum ada penilaian.";
+        } else {
+            status.textContent =
+                result.total + " penilaian tersimpan dalam database.";
+        }
+
+    } catch (error) {
+        console.error(error);
+
+        document.getElementById("ratingStatus").textContent =
+            "Gagal mengambil data penilaian.";
+    }
+}
+
+
+/* ========================================
+   5. FORM PENILAIAN KOMPETENSI
+======================================== */
+
+document.getElementById("ratingForm").addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    // Mengambil nilai dari dropdown
+    const formData = new FormData();
+
+    formData.append(
+        "mechanical",
+        document.getElementById("mechanical").value
+    );
+
+    formData.append(
+        "electrical",
+        document.getElementById("electrical").value
+    );
+
+    formData.append(
+        "automation",
+        document.getElementById("automation").value
+    );
+
+    formData.append(
+        "programming",
+        document.getElementById("programming").value
+    );
+
+    try {
+
+        // Mengirim penilaian ke PHP
+        const response = await fetch("save_rating.php", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+            throw new Error(result.message || "Gagal menyimpan penilaian.");
+        }
+
+        // Mengambil kembali data terbaru dari database
+        await updateSkillChart();
+
+        // Menampilkan notifikasi
+        alert("Terima kasih! Penilaian berhasil disimpan ke database.");
+
+        // Mengembalikan dropdown ke pilihan awal
+        this.reset();
+
+        // Kembali ke bagian beranda
+        document.getElementById("home").scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+        history.replaceState(null, null, "#home");
+
+    } catch (error) {
+
+        console.error(error);
+        alert("Terjadi kesalahan: " + error.message);
 
     }
 
@@ -995,113 +1114,11 @@ const skillChart = new Chart(chartCanvas, {
 
 
 /* ========================================
-   5. MENGHITUNG RATA-RATA PENILAIAN
-======================================== */
-
-function updateSkillChart() {
-
-    const skills = [
-        "mechanical",
-        "electrical",
-        "automation",
-        "programming"
-    ];
-
-    const averages = skills.map(function(skill) {
-
-        if (ratings.length === 0) {
-            return 0;
-        }
-
-        const total = ratings.reduce(function(sum, item) {
-
-            return sum + Number(item[skill] || 0);
-
-        }, 0);
-
-        return Number((total / ratings.length).toFixed(2));
-
-    });
-
-    skillChart.data.datasets[0].data = averages;
-
-    skillChart.update();
-
-    document.getElementById("ratingStatus").textContent =
-        ratings.length + " penilaian tersimpan pada browser ini.";
-
-}
-
-
-/* ========================================
-   6. FORM PENILAIAN KOMPETENSI
-======================================== */
-
-
-document.getElementById("ratingForm").addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const newRating = {
-
-        mechanical: Number(
-            document.getElementById("mechanical").value
-        ),
-
-        electrical: Number(
-            document.getElementById("electrical").value
-        ),
-
-        automation: Number(
-            document.getElementById("automation").value
-        ),
-
-        programming: Number(
-            document.getElementById("programming").value
-        )
-
-    };
-
-    // Menyimpan penilaian baru
-    ratings.push(newRating);
-
-    localStorage.setItem(
-        ratingStorageKey,
-        JSON.stringify(ratings)
-    );
-
-    // Memperbarui grafik penilaian
-    updateSkillChart();
-
-    // Menampilkan notifikasi
-// Menampilkan notifikasi
-alert("Terima kasih! Penilaian Anda berhasil disimpan.");
-
-// MENGEMBALIKAN 4 DROPDOWN KE PILIHAN AWAL
-this.reset();
-
-// PINDAH KE SLIDE BERANDA SETELAH USER KLIK OK
-document.getElementById("home").scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-});
-
-// Memperbarui alamat URL
-history.replaceState(null, null, "#home");
-
-});
-
-
-
-/* ========================================
-   7. MENAMPILKAN DATA SAAT HALAMAN DIBUKA
+   6. MENAMPILKAN DATA SAAT HALAMAN DIBUKA
 ======================================== */
 
 updateSkillChart();
-
 </script>
-
-
 
 <!-- ========================================
      AUTOSCROLL NAVBAR
